@@ -1,6 +1,8 @@
-﻿namespace Business.Request
+﻿using Core.Entities;
+
+namespace Business.Request
 {
-    public class CreateCategoryRequest
+    public class CreateCategoryRequest : IValidatableEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.DataAccess.EntityFramework;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface ICategoryDal
+    public interface ICategoryDal : IRepositoryBase<Category>
     {
-        List<Category> GetAll();
-
-        Category GetById(int id);
-
-        void Delete(Category request);
-
-        void Update(Category request);
-
-        void Add(Category request);
     }
 }

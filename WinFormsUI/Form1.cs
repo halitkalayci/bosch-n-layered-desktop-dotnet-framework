@@ -116,11 +116,20 @@ namespace WinFormsUI
         {
             selectedCategory = (ListCategoryResponse)categoriesListBox.SelectedItem;
             updateDeleteBtnStatus();
+            updateInputs();
         }
 
         private void updateDeleteBtnStatus()
         {
             deleteBtn.Enabled = selectedCategory != null;
+        }
+
+        private void updateInputs()
+        {
+            if (selectedCategory == null) return;
+            updateGroupBox.Enabled = true;
+            updateCategoryNameTb.Text = selectedCategory.Name;
+            updateCategoryDescTb.Text = selectedCategory.Description;
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -135,6 +144,22 @@ namespace WinFormsUI
                 selectedCategory = null;
                 readData();
                 updateDeleteBtnStatus();
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if(selectedCategory != null)
+            {
+                UpdateCategoryRequest updateCategoryRequest = new UpdateCategoryRequest()
+                {
+                    Id = selectedCategory.Id,
+                    Name = updateCategoryNameTb.Text,
+                    Description = updateCategoryDescTb.Text,
+                };
+                _categoryService.Update(updateCategoryRequest);
+                MessageBox.Show("Güncelleme başarılı!", "Sistem");
+                readData();
             }
         }
     }

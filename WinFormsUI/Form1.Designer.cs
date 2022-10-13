@@ -31,13 +31,20 @@
             this.btnReadData = new System.Windows.Forms.Button();
             this.btnWriteData = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.categoryNameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.descriptionRichTb = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.categoryNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.categoriesListBox = new System.Windows.Forms.ListBox();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.updateGroupBox = new System.Windows.Forms.GroupBox();
+            this.updateCategoryDescTb = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.updateCategoryNameTb = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.updateBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.updateGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReadData
@@ -74,22 +81,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Category Area";
             // 
-            // label1
+            // descriptionRichTb
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(16, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Category Name";
-            // 
-            // categoryNameTextBox
-            // 
-            this.categoryNameTextBox.Location = new System.Drawing.Point(148, 36);
-            this.categoryNameTextBox.Name = "categoryNameTextBox";
-            this.categoryNameTextBox.Size = new System.Drawing.Size(141, 22);
-            this.categoryNameTextBox.TabIndex = 3;
+            this.descriptionRichTb.Location = new System.Drawing.Point(148, 79);
+            this.descriptionRichTb.Name = "descriptionRichTb";
+            this.descriptionRichTb.Size = new System.Drawing.Size(141, 95);
+            this.descriptionRichTb.TabIndex = 5;
+            this.descriptionRichTb.Text = "";
             // 
             // label2
             // 
@@ -101,13 +99,22 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Description";
             // 
-            // descriptionRichTb
+            // categoryNameTextBox
             // 
-            this.descriptionRichTb.Location = new System.Drawing.Point(148, 79);
-            this.descriptionRichTb.Name = "descriptionRichTb";
-            this.descriptionRichTb.Size = new System.Drawing.Size(141, 95);
-            this.descriptionRichTb.TabIndex = 5;
-            this.descriptionRichTb.Text = "";
+            this.categoryNameTextBox.Location = new System.Drawing.Point(148, 36);
+            this.categoryNameTextBox.Name = "categoryNameTextBox";
+            this.categoryNameTextBox.Size = new System.Drawing.Size(141, 22);
+            this.categoryNameTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(16, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Category Name";
             // 
             // categoriesListBox
             // 
@@ -130,11 +137,72 @@
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
+            // updateGroupBox
+            // 
+            this.updateGroupBox.Controls.Add(this.updateCategoryDescTb);
+            this.updateGroupBox.Controls.Add(this.label3);
+            this.updateGroupBox.Controls.Add(this.updateCategoryNameTb);
+            this.updateGroupBox.Controls.Add(this.label4);
+            this.updateGroupBox.Controls.Add(this.updateBtn);
+            this.updateGroupBox.Enabled = false;
+            this.updateGroupBox.Location = new System.Drawing.Point(12, 249);
+            this.updateGroupBox.Name = "updateGroupBox";
+            this.updateGroupBox.Size = new System.Drawing.Size(308, 252);
+            this.updateGroupBox.TabIndex = 6;
+            this.updateGroupBox.TabStop = false;
+            this.updateGroupBox.Text = "Update Category Area";
+            // 
+            // updateCategoryDescTb
+            // 
+            this.updateCategoryDescTb.Location = new System.Drawing.Point(148, 79);
+            this.updateCategoryDescTb.Name = "updateCategoryDescTb";
+            this.updateCategoryDescTb.Size = new System.Drawing.Size(141, 95);
+            this.updateCategoryDescTb.TabIndex = 5;
+            this.updateCategoryDescTb.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label3.Location = new System.Drawing.Point(16, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Description";
+            // 
+            // updateCategoryNameTb
+            // 
+            this.updateCategoryNameTb.Location = new System.Drawing.Point(148, 36);
+            this.updateCategoryNameTb.Name = "updateCategoryNameTb";
+            this.updateCategoryNameTb.Size = new System.Drawing.Size(141, 22);
+            this.updateCategoryNameTb.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label4.Location = new System.Drawing.Point(16, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Category Name";
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(88, 196);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(113, 26);
+            this.updateBtn.TabIndex = 1;
+            this.updateBtn.Text = "Update Data";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 527);
+            this.Controls.Add(this.updateGroupBox);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.categoriesListBox);
             this.Controls.Add(this.groupBox1);
@@ -144,6 +212,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.updateGroupBox.ResumeLayout(false);
+            this.updateGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -159,6 +229,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox categoriesListBox;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.GroupBox updateGroupBox;
+        private System.Windows.Forms.RichTextBox updateCategoryDescTb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox updateCategoryNameTb;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button updateBtn;
     }
 }
 

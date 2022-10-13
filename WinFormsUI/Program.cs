@@ -18,9 +18,11 @@ namespace WinFormsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // Global Exception Handling
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += Application_ThreadException;
-            Application.Run(new Form1());
+            //
+            Application.Run(new CustomerForm());
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
@@ -31,13 +33,15 @@ namespace WinFormsUI
             {
                 var validationError = (CustomValidationException)e.Exception;
                 HandleValidationException(validationError);
+                return;
             }
             if(e.Exception is BusinessException)
             {
                 var businessException = (BusinessException)e.Exception;
                 MessageBox.Show(businessException.ToString(), "Business Hatası");
+                return;
             }
-            Console.WriteLine("Exception fırlatıldı!!!!");
+            MessageBox.Show("Bilinmedik hata", "Sistem");
         }
 
         // Custom Exception Class: İçindeki erroları mesaj olarak alt alta döndürsün.

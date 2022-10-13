@@ -19,7 +19,7 @@ namespace Business.BusinessRules
 
         public void CheckIfCategoryNotExist(int id)
         {
-            var result = _category.GetById(id);
+            var result = _category.Get(i=>i.CategoryID == id);
             CheckIfCategoryNotExist(result);
         }
         public void CheckIfCategoryNameExists(string name)
@@ -30,7 +30,7 @@ namespace Business.BusinessRules
         }
         public void CheckIfCategoryExists(int id)
         {
-            var result = _category.GetById(id);
+            var result = _category.Get(i=>i.CategoryID == id);
             CheckIfCategoryExists(result);
 
         }

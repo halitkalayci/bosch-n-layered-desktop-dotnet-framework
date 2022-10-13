@@ -52,7 +52,8 @@ namespace Business.Concretes
         public void Delete(DeleteCategoryRequest request)
         {
             _businessRules.CheckIfCategoryNotExist(request.Id);
-            Category category = _mapper.Map<Category>(request);
+            Category category = _mapper.Map<Category>(request); // yeni bir instance üretir, ID olmak zorunda!
+            //Category category = _categoryDal.GetById(request.Id); // databasede obje instance'i
             _categoryDal.Delete(category);
         }
 
@@ -65,7 +66,7 @@ namespace Business.Concretes
 
         public GetCategoryResponse GetById(int id)
         {
-            var result = _categoryDal.GetById(id);
+            var result = _categoryDal.Get(i=>i.CategoryID == id);
             _businessRules.CheckIfCategoryNotExist(result);
             var response = _mapper.Map<GetCategoryResponse>(result);
             return response;

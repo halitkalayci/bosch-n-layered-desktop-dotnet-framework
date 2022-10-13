@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Core.DataAccess.Adonet.Helpers;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 
 namespace DataAccess.Concretes.Adonet
 {
-    public class AdoCategoryDal :ICategoryDal
+    public class AdoCategoryDal : ICategoryDal
     {
         public void Add(Category category)
         {
@@ -27,10 +28,23 @@ namespace DataAccess.Concretes.Adonet
             if (affectedRowCount == 0) throw new Exception(message: "No affected row.");
         }
 
+        public Category Get(Expression<Func<Category, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Category> GetAll()
         {
             List<Category> _category = DbHelper.CreateReadConnection<Category>("select * from Categories");
             return _category;
+        }
+
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        {
+            List<Category> _categories = DbHelper.CreateReadConnection<Category>("select * from Categories");
+            if(filter!=null)
+                _categories.AsQueryable().Where(filter);
+            return _categories;
         }
 
         public Category GetById(int id)

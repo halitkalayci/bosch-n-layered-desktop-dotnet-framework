@@ -1,4 +1,5 @@
-﻿using Core.Exceptions;
+﻿using Core.Entities;
+using Core.Exceptions;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ using System.Threading.Tasks;
 namespace Core.Validation
 {
     public static class ValidationHelper<T>
+        where T : IValidatableEntity, new()
     {
         // Backlog: Requesti direkt validatorden alabiliriz.
         public static void Validate(Type validatorType, T request)
         {
+            // Gelen validator tipi bir IValidator mü?
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
                 throw new Exception("Provided type is not a valid validator.");

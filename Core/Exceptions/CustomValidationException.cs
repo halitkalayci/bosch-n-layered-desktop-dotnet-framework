@@ -21,7 +21,7 @@ namespace Core.Exceptions
             {
                 message += item.ErrorMessage + "\n";
             }
-            return message.ToString();
+            return message;
         }
     }
 }
