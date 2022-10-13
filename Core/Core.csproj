@@ -57,7 +57,7 @@
     <Compile Include="DataAccess\Adonet\Helpers\CommandHelper.cs" />
     <Compile Include="DataAccess\Adonet\Helpers\DbHelper.cs" />
     <Compile Include="DataAccess\EntityFramework\EfRepositoryBase.cs" />
-    <Compile Include="DataAccess\EntityFramework\IRepositoryBase.cs" />
+    <Compile Include="DataAccess\IRepositoryBase.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\IValidatableEntity.cs" />
     <Compile Include="Exceptions\BusinessException.cs" />

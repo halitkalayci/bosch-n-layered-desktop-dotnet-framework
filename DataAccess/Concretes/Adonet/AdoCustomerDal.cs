@@ -4,6 +4,7 @@ using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,11 +22,17 @@ namespace DataAccess.Concretes.Adonet
             throw new NotImplementedException();
         }
 
-        public List<Customer> GetAll()
+        public Customer Get(Expression<Func<Customer, bool>> filter = null)
         {
             List<Customer> _customer = DbHelper.CreateReadConnection<Customer>("select * from Customers");
+            return filter != null ? _customer.AsQueryable().FirstOrDefault(filter) : _customer.FirstOrDefault();
+        }
 
-            return _customer;
+
+        public List<Customer> GetAll(Expression<Func<Customer, bool>> filter = null)
+        {
+            List<Customer> _customer = DbHelper.CreateReadConnection<Customer>("select * from Customers");
+            return filter != null ? _customer = _customer.AsQueryable().Where(filter).ToList()  : _customer;
         }
 
         public Customer GetById(string id)
@@ -33,6 +40,8 @@ namespace DataAccess.Concretes.Adonet
             Customer customer = DbHelper.CreateReadConnection<Customer>($"select * from Customers where CustomerID='{id}'").FirstOrDefault();
             return customer;
         }
+
+ 
 
         public void Update(Customer customer)
         {

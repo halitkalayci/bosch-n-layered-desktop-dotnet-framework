@@ -29,18 +29,32 @@ namespace WinFormsUI
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            // Verileri getir!
-            // DataGridView'a ekle.
-            // List<ListCustomerResponse> customers = _customerService.GetAll();
-            // Data Source
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=Northwind;");
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * from Customers", sqlConnection);
-            DataSet dataSet = new DataSet();
-            sqlConnection.Open();
-            dataAdapter.Fill(dataSet, "Customers");
-            sqlConnection.Close();
-            customersDataGridView.DataSource = dataSet;
-            customersDataGridView.DataMember = "Customers";
+            //SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=Northwind;");
+            //SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * from Customers", sqlConnection);
+            //DataSet dataSet = new DataSet();
+            //sqlConnection.Open();
+            //dataAdapter.Fill(dataSet, "Customers");
+            //sqlConnection.Close();
+            //customersDataGridView.DataSource = dataSet;
+            //customersDataGridView.DataMember = "Customers";
+            
+
+
+            List<ListCustomerResponse> customers = _customerService.GetAll();
+            customersDataGridView.DataSource = customers;
+        }
+
+        //ListCustomerResponse için, tablodaki tüm alanları dahil et.
+        //Ekleme, güncelleme için validatorler ekle.
+
+        //Silmek için buton, eklemek ve update etmek için ilgili grupları ekle.
+
+        private void customersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (customersDataGridView.SelectedRows.Count <= 0) return;
+            var firstlySelectedRow = customersDataGridView.SelectedRows[0];
+            Console.WriteLine(firstlySelectedRow.Cells["CustomerID"].Value);
+            Console.WriteLine("Selection Changed");
         }
     }
 }

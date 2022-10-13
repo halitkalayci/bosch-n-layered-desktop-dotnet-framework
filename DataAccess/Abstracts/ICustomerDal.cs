@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.DataAccess;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstracts
 {
-    public interface ICustomerDal
+    public interface ICustomerDal : IRepositoryBase<Customer>
     {
-        List<Customer> GetAll();
         Customer GetById(string id);
-        void Add(Customer customer);
-        void Update(Customer customer);
-        void Delete(Customer customer);
+
     }
 }

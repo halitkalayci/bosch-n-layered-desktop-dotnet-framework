@@ -14,7 +14,7 @@ namespace Core.DataAccess.Adonet.Helpers
             IEntity,
             new()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=localhost;Initial Catalog=Northwind;User=sa;Password=Passw0rd;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=Northwind;");
             SqlCommand command = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
 
@@ -57,7 +57,7 @@ namespace Core.DataAccess.Adonet.Helpers
             SqlConnection connection =
                 new SqlConnection(
                     connectionString:
-                    @"Data Source=localhost;Initial Catalog=Northwind;User=sa;Password=Passw0rd;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                    @"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=Northwind;");
             connection.Open();
 
             SqlCommand command = new SqlCommand(query, connection);

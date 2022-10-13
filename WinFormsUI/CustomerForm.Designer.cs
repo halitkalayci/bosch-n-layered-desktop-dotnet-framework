@@ -45,6 +45,7 @@
             this.customersDataGridView.RowTemplate.Height = 24;
             this.customersDataGridView.Size = new System.Drawing.Size(1094, 205);
             this.customersDataGridView.TabIndex = 0;
+            this.customersDataGridView.SelectionChanged += new System.EventHandler(this.customersDataGridView_SelectionChanged);
             // 
             // CustomerForm
             // 
