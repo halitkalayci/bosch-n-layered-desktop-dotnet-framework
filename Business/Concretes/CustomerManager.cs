@@ -1,7 +1,11 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
+using Business.Adapters;
+using Business.Adapters.Abstracts;
 using Business.BusinessRules;
 using Business.Request.Customer;
 using Business.Response.Customer;
+using Core.Exceptions;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -17,15 +21,18 @@ namespace Business.Concretes
     public class CustomerManager : ICustomerService
     {
         ICustomerDal _customerDal;
+        IMapper _mapper;
         CustomerBusinessRules _customerBusinessRules;
 
-        public CustomerManager(ICustomerDal customerDal, CustomerBusinessRules customerBusinessRules)
+        public CustomerManager(ICustomerDal customerDal, CustomerBusinessRules customerBusinessRules, IMapper mapper)
         {
             _customerDal = customerDal;
             _customerBusinessRules = customerBusinessRules;
+            _mapper = mapper;
         }
         public void Add(CreateCustomerRequest customer)
         {
+            _customerBusinessRules.ValidateIdentity(Convert.ToInt64(customer.IdentityNumber), customer.Name, customer.Surname, customer.BirthDate.Year);
             _customerBusinessRules.CheckIfCustomerExist(customer.CustomerID);
             Customer newCustomer = new Customer()
             {
@@ -40,7 +47,6 @@ namespace Business.Concretes
                 Phone = customer.Phone,
                 Fax = customer.Fax
             };
-
             _customerDal.Add(newCustomer);
         }
 
@@ -53,16 +59,9 @@ namespace Business.Concretes
 
         public List<ListCustomerResponse> GetAll()
         {
-            List<ListCustomerResponse> customers = new List<ListCustomerResponse>();
-            foreach (var customer in _customerDal.GetAll())
-            {
-                ListCustomerResponse listCustomerResponse = new ListCustomerResponse();
-                listCustomerResponse.CustomerID = customer.CustomerID;
-                listCustomerResponse.CompanyName = customer.CompanyName;
-                customers.Add(listCustomerResponse);
-            }
-
-            return customers;
+            List<Customer> customers = _customerDal.GetAll();
+            List<ListCustomerResponse> customerResponse = _mapper.Map<List<ListCustomerResponse>>(customers);
+            return customerResponse;
         }
 
         public GetCustomerResponse GetById(string id)

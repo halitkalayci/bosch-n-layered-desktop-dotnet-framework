@@ -18,5 +18,9 @@ namespace Business.Request.Customer
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        public string IdentityNumber { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
     }
 }

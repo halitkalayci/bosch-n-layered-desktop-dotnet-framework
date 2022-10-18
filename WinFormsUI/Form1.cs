@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using AutoMapper;
 using Business.Abstracts;
+using Business.Adapters;
+using Business.Adapters.Abstracts;
+using Business.Adapters.Concretes;
 using Business.BusinessRules;
 using Business.Concretes;
 using Business.Profiles;
@@ -28,8 +31,12 @@ namespace WinFormsUI
                 cfg.AddProfile(autoMapperProfiles);
             });
             IMapper mapper = new Mapper(mapperConfig);
+            IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
             _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper);
-            _customerService = new CustomerManager(customerDal, new CustomerBusinessRules(customerDal));
+            _customerService = new CustomerManager(
+                customerDal, 
+                new CustomerBusinessRules(customerDal, identityAdapter),
+                mapper);
             InitializeComponent();
         }
 

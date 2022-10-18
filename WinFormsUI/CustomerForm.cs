@@ -1,6 +1,12 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
+using Business.Adapters;
+using Business.Adapters.Abstracts;
+using Business.Adapters.Concretes;
 using Business.BusinessRules;
 using Business.Concretes;
+using Business.Profiles;
+using Business.Request.Customer;
 using Business.Response.Customer;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.Adonet;
@@ -23,7 +29,17 @@ namespace WinFormsUI
         public CustomerForm()
         {
             ICustomerDal _customerDal = new AdoCustomerDal();
-            _customerService = new CustomerManager(_customerDal, new CustomerBusinessRules(_customerDal));
+            AutoMapperProfiles autoMapperProfiles = new AutoMapperProfiles();
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(autoMapperProfiles);
+            });
+            IMapper mapper = new Mapper(mapperConfig);
+            IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
+            _customerService = new 
+                CustomerManager(_customerDal, 
+                new CustomerBusinessRules(_customerDal,identityAdapter),
+                mapper);
             InitializeComponent();
         }
 
@@ -37,11 +53,17 @@ namespace WinFormsUI
             //sqlConnection.Close();
             //customersDataGridView.DataSource = dataSet;
             //customersDataGridView.DataMember = "Customers";
-            
 
 
-            List<ListCustomerResponse> customers = _customerService.GetAll();
-            customersDataGridView.DataSource = customers;
+            // Abstraction
+            // Adapters
+            getAllCustomers();
+        }
+
+
+        private void getAllCustomers()
+        {
+            customersDataGridView.DataSource = _customerService.GetAll();
         }
 
         //ListCustomerResponse için, tablodaki tüm alanları dahil et.
@@ -55,6 +77,33 @@ namespace WinFormsUI
             var firstlySelectedRow = customersDataGridView.SelectedRows[0];
             Console.WriteLine(firstlySelectedRow.Cells["CustomerID"].Value);
             Console.WriteLine("Selection Changed");
+            updateCompanyNameTb.Text = firstlySelectedRow.Cells["CompanyName"].Value?.ToString();
+            updateCustomerIdTb.Text = firstlySelectedRow.Cells["CustomerId"].Value?.ToString();
+        }
+
+        private void addCustomerBtn_Click(object sender, EventArgs e)
+        {
+            CreateCustomerRequest createCustomerRequest = new CreateCustomerRequest()
+            {
+                Name = nameTb.Text,
+                Surname = surnameTb.Text,
+                BirthDate = birthDateDp.Value,
+                IdentityNumber = identityNumberTb.Text,
+                CompanyName = companyNameTb.Text
+            };
+            _customerService.Add(createCustomerRequest);
+            getAllCustomers();
+        }
+
+        private void updateCustomerBtn_Click(object sender, EventArgs e)
+        {
+            UpdateCustomerRequest updateCustomerRequest = new UpdateCustomerRequest()
+            {
+                CustomerID= updateCustomerIdTb.Text,
+                CompanyName = updateCompanyNameTb.Text
+            };
+            _customerService.Update(updateCustomerRequest);
+            getAllCustomers();
         }
     }
 }

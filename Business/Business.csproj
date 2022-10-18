@@ -39,6 +39,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,10 +51,18 @@
   <ItemGroup>
     <Compile Include="Abstracts\ICategoryService.cs" />
     <Compile Include="Abstracts\ICustomerService.cs" />
+    <Compile Include="Adapters\Concretes\KPSIdentityAdapter.cs" />
+    <Compile Include="Adapters\Abstracts\IIdentityAdapter.cs" />
+    <Compile Include="Adapters\Concretes\TCKNIdentityAdapter.cs" />
     <Compile Include="BusinessRules\CategoryBusinessRules.cs" />
     <Compile Include="BusinessRules\CustomerBusinessRules.cs" />
     <Compile Include="Concretes\CategoryManager.cs" />
     <Compile Include="Concretes\CustomerManager.cs" />
+    <Compile Include="Connected Services\KPSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Profiles\AutoMapperProfiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\Category\CreateCategoryRequest.cs" />
@@ -69,6 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\KPSService\Business.KPSService.TCKimlikNoDogrulaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\KPSService\KPSPublic.wsdl" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +99,23 @@
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\KPSService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KPSService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KPSService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KPSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

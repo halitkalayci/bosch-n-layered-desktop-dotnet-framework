@@ -1,4 +1,6 @@
-﻿using DataAccess.Abstracts;
+﻿using Business.Adapters.Abstracts;
+using Core.Exceptions;
+using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,12 @@ namespace Business.BusinessRules
     public class CustomerBusinessRules
     {
         ICustomerDal _customerDal;
-        public CustomerBusinessRules(ICustomerDal customerDal)
+        IIdentityAdapter _identityAdapter;
+
+        public CustomerBusinessRules(ICustomerDal customerDal, IIdentityAdapter identityAdapter)
         {
             _customerDal = customerDal;
+            _identityAdapter = identityAdapter;
         }
         public void CheckIfCustomerExist(string id)
         {
@@ -37,6 +42,13 @@ namespace Business.BusinessRules
         {
             if (customer == null)
                 throw new Exception("Müşteri bulunamadı.");
+        }
+
+        public void ValidateIdentity(long identityNumber,string name,string surname,int birthYear)
+        {
+            bool isIdentityValid = _identityAdapter.CheckIdentityNumber(identityNumber,name,surname,birthYear);
+            if (!isIdentityValid)
+                throw new BusinessException("Kimlik bilgileri doğrulanamadı.");
         }
     }
 }

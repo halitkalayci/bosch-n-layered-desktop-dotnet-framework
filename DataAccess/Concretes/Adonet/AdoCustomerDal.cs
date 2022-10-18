@@ -14,7 +14,8 @@ namespace DataAccess.Concretes.Adonet
     {
         public void Add(Customer customer)
         {
-            throw new NotImplementedException();
+            // ADD kısmını handle et.
+            DbHelper.CreateWriteConnection<Customer>("Insert into Customers(CustomerID,CompanyName) VALUES ('HALIT',@CompanyName)", customer);
         }
 
         public void Delete(Customer customer)
@@ -45,7 +46,6 @@ namespace DataAccess.Concretes.Adonet
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
         }
     }
 }

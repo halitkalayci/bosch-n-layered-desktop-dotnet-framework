@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Request;
 using Business.Response;
+using Business.Response.Customer;
 using Entities.Concretes;
 
 namespace Business.Profiles
@@ -24,6 +25,8 @@ namespace Business.Profiles
             CreateMap<Category, ListCategoryResponse>()
                 .ForMember(r => r.Id, config => config.MapFrom(c => c.CategoryID))
                 .ForMember(r => r.Name, config => config.MapFrom(c => c.CategoryName));
+
+            CreateMap<Customer, ListCustomerResponse>().ReverseMap();
         }
     }
 }
