@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Abstracts\ICategoryService.cs" />
     <Compile Include="Abstracts\ICustomerService.cs" />
+    <Compile Include="Adapters\Abstracts\IPaymentAdapter.cs" />
+    <Compile Include="Adapters\Concretes\BoschPaymentAdapter.cs" />
     <Compile Include="Adapters\Concretes\KPSIdentityAdapter.cs" />
     <Compile Include="Adapters\Abstracts\IIdentityAdapter.cs" />
     <Compile Include="Adapters\Concretes\TCKNIdentityAdapter.cs" />
@@ -59,6 +61,11 @@
     <Compile Include="Concretes\CategoryManager.cs" />
     <Compile Include="Concretes\CustomerManager.cs" />
     <Compile Include="Connected Services\KPSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PaymentService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -83,6 +90,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\KPSService\KPSPublic.wsdl" />
+    <None Include="Connected Services\PaymentService\PaymentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PaymentService\service.wsdl" />
+    <None Include="Connected Services\PaymentService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PaymentService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\KPSService\" />
+    <WCFMetadataStorage Include="Connected Services\PaymentService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\KPSService\configuration91.svcinfo" />
@@ -113,6 +131,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\KPSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PaymentService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PaymentService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PaymentService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

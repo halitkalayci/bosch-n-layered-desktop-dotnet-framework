@@ -36,9 +36,10 @@ namespace WinFormsUI
             });
             IMapper mapper = new Mapper(mapperConfig);
             IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
+            IPaymentAdapter paymentAdapter = new BoschPaymentAdapter();
             _customerService = new 
                 CustomerManager(_customerDal, 
-                new CustomerBusinessRules(_customerDal,identityAdapter),
+                new CustomerBusinessRules(_customerDal,identityAdapter,paymentAdapter),
                 mapper);
             InitializeComponent();
         }

@@ -23,7 +23,6 @@ namespace Business.Concretes
         ICustomerDal _customerDal;
         IMapper _mapper;
         CustomerBusinessRules _customerBusinessRules;
-
         public CustomerManager(ICustomerDal customerDal, CustomerBusinessRules customerBusinessRules, IMapper mapper)
         {
             _customerDal = customerDal;
@@ -34,6 +33,7 @@ namespace Business.Concretes
         {
             _customerBusinessRules.ValidateIdentity(Convert.ToInt64(customer.IdentityNumber), customer.Name, customer.Surname, customer.BirthDate.Year);
             _customerBusinessRules.CheckIfCustomerExist(customer.CustomerID);
+            _customerBusinessRules.CheckIfPaymentSuccess("a", "a", 1, 101);
             Customer newCustomer = new Customer()
             {
                 CustomerID = customer.CustomerID,

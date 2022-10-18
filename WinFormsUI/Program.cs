@@ -3,6 +3,7 @@ using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,23 +32,30 @@ namespace WinFormsUI
             // Backlog: switch yapısına çevirilecek.
             if(e.Exception is CustomValidationException)
             {
-                var validationError = (CustomValidationException)e.Exception;
-                HandleValidationException(validationError);
+                HandleValidationException(e);
                 return;
             }
             if(e.Exception is BusinessException)
             {
-                var businessException = (BusinessException)e.Exception;
-                MessageBox.Show(businessException.ToString(), "Business Hatası");
+                HandleBusinessException(e);
                 return;
             }
             MessageBox.Show("Bilinmedik hata", "Sistem");
         }
 
-        // Custom Exception Class: İçindeki erroları mesaj olarak alt alta döndürsün.
-        private static void HandleValidationException(CustomValidationException validationError)
+        private static void HandleBusinessException(ThreadExceptionEventArgs e)
         {
-            MessageBox.Show(validationError.ToString(), "Validasyon Hatası");
+            var businessException = (BusinessException)e.Exception;
+            ErrorForm errorForm = new ErrorForm(businessException.ToString());
+            errorForm.ShowDialog();
+        }
+
+        // Custom Exception Class: İçindeki erroları mesaj olarak alt alta döndürsün.
+        private static void HandleValidationException(ThreadExceptionEventArgs e)
+        {
+            var validationError = (CustomValidationException)e.Exception;
+            ErrorForm errorForm = new ErrorForm(validationError.ToString());
+            errorForm.ShowDialog();
         }
     }
 }

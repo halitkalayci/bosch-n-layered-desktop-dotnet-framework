@@ -58,8 +58,11 @@
             this.customersDataGridView.AllowUserToAddRows = false;
             this.customersDataGridView.AllowUserToDeleteRows = false;
             this.customersDataGridView.AllowUserToOrderColumns = true;
+            this.customersDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customersDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.customersDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.customersDataGridView.MultiSelect = false;
             this.customersDataGridView.Name = "customersDataGridView";
             this.customersDataGridView.ReadOnly = true;
             this.customersDataGridView.RowHeadersWidth = 51;
@@ -237,7 +240,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(570, 246);
+            this.button1.Location = new System.Drawing.Point(564, 236);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 34);
             this.button1.TabIndex = 24;
