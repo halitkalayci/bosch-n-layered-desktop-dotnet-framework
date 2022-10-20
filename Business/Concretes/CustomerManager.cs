@@ -33,7 +33,7 @@ namespace Business.Concretes
         {
             _customerBusinessRules.ValidateIdentity(Convert.ToInt64(customer.IdentityNumber), customer.Name, customer.Surname, customer.BirthDate.Year);
             _customerBusinessRules.CheckIfCustomerExist(customer.CustomerID);
-            _customerBusinessRules.CheckIfPaymentSuccess("a", "a", 1, 101);
+            _customerBusinessRules.CheckIfPaymentSuccess("a", "a", 1, 100);
             Customer newCustomer = new Customer()
             {
                 CustomerID = customer.CustomerID,

@@ -45,18 +45,18 @@ namespace Business.BusinessRules
                 throw new Exception("Müşteri bulunamadı.");
         }
 
-        public void ValidateIdentity(long identityNumber,string name,string surname,int birthYear)
+        public void ValidateIdentity(long identityNumber, string name, string surname, int birthYear)
         {
-            bool isIdentityValid = _identityAdapter.CheckIdentityNumber(identityNumber,name,surname,birthYear);
+            bool isIdentityValid = _identityAdapter.CheckIdentityNumber(identityNumber, name, surname, birthYear);
             if (!isIdentityValid)
-                throw new BusinessException("Kimlik bilgileri doğrulanamadı.");
+                throw new BusinessException("Kimlik bilgileri doğrulanamadı.", false);
         }
 
-        public void CheckIfPaymentSuccess(string cardNumber,string expireDate,int cvv,decimal price)
+        public void CheckIfPaymentSuccess(string cardNumber, string expireDate, int cvv, decimal price)
         {
-            bool isPaymentSuccess = _paymentAdapter.Pay(cardNumber,expireDate,cvv,price);
+            bool isPaymentSuccess = _paymentAdapter.Pay(cardNumber, expireDate, cvv, price);
             if (!isPaymentSuccess)
-                throw new BusinessException("Ödeme yapılamadı.");
+                throw new BusinessException("Ödeme yapılamadı.", false);
         }
     }
 }

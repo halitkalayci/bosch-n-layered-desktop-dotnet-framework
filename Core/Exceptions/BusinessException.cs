@@ -8,15 +8,22 @@ namespace Core.Exceptions
 {
     public class BusinessException : Exception
     {
-        public string ErrorMessage { get; set; }
-        public BusinessException(string errorMessage)
+        public string Message { get; set; }
+        public bool MessageType { get; set; }
+        public BusinessException(string message, bool messageType)
         {
-            ErrorMessage = errorMessage;
+            Message = message;
+            MessageType = messageType;
         }
 
         public override string ToString()
         {
-            return ErrorMessage;
+            return Message;
+        }
+
+        public bool GetMessageType()
+        {
+            return MessageType;
         }
     }
 }
