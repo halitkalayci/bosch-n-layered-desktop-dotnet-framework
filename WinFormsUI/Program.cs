@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsUI.Helpers;
 
 namespace WinFormsUI
 {
@@ -30,12 +31,12 @@ namespace WinFormsUI
         {
             // Gelen exceptiona göre davranışlar..
             // Backlog: switch yapısına çevirilecek.
-            if(e.Exception is CustomValidationException)
+            if (e.Exception is CustomValidationException)
             {
                 HandleValidationException(e);
                 return;
             }
-            if(e.Exception is BusinessException)
+            if (e.Exception is BusinessException)
             {
                 HandleBusinessException(e);
                 return;
