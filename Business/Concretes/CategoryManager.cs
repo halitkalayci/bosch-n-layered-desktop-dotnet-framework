@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using Business.Abstracts;
 using Business.BusinessRules;
@@ -7,55 +8,71 @@ using Business.Request;
 using Business.Response;
 using Business.ValidationResolvers.FluentValidation.Category;
 using Core.CrossCuttingConcerns.Logging;
+using Core.Utilities.Logging;
 using Core.Validation;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using FluentValidation;
+using Newtonsoft.Json;
 
 namespace Business.Concretes
 {
     public class CategoryManager : ICategoryService
     {
-        private LoggerServiceBase _logger;
+        private LoggerServiceBase[] _loggers;
         private ICategoryDal _categoryDal;
         private CategoryBusinessRules _businessRules;
         private IMapper _mapper;
-        public CategoryManager(ICategoryDal category, CategoryBusinessRules businessRules, IMapper mapper, LoggerServiceBase logger)
+        public CategoryManager(ICategoryDal category, CategoryBusinessRules businessRules, IMapper mapper, LoggerServiceBase[] loggers)
         {
             _categoryDal = category;
             _businessRules = businessRules;
             _mapper = mapper;
-            _logger = logger;
+            _loggers = loggers;
         }
 
         public void Add(CreateCategoryRequest request)
         {
-            //System.ComponentModel.DataAnnotations.ValidationContext context = new System.ComponentModel.DataAnnotations.ValidationContext(request, null, null);
 
-            //IList<ValidationResult> validationResults = new List<ValidationResult>();
+            using(AuthService.AuthServiceSoapClient client = new AuthService.AuthServiceSoapClient())
+            {
+                var response = client.SayHi(new AuthService.AuthUser() 
+                { Username = "halit", Password = "123" }, 
+                "Halit");
+            }
+       
+            /// LOGLAMA
+            string logAsJson = LogDetailHelper
+                .GetLogDetails(nameof(Add), typeof(CreateCategoryRequest).GetProperties(), request);
+            foreach (var logger in _loggers)
+            {
+                logger.Info(logAsJson);
+            }
+            ///
 
-            //if (!Validator.TryValidateObject(request, context, validationResults,true))
-            //{
-            //    foreach (var result in validationResults)
-            //    {
-            //        Console.WriteLine("Validasyon Hatası:" + result.ErrorMessage);
-            //    }
-
-            //    return;
-            //}
-
-            // Parametredeki tüm değerleri, method adını JSON olarak yazdır..
-            _logger.Info("CategoryManager.Add methodu çağırıldı..");
+            /// Validasyon
             ValidationHelper<CreateCategoryRequest>
                 .Validate(typeof(CreateCategoryRequestValidator),request);
+            ///
 
-            //ValidationTool.Validate(validator, request);
+            /// MAPLEME
             Category category = _mapper.Map<Category>(request);
+            ///
+
+            /// DATABASE ACTION
             _categoryDal.Add(category); 
+            ///
         }
 
         public void Delete(DeleteCategoryRequest request)
         {
+            string logAsJson = LogDetailHelper
+            .GetLogDetails(System.Reflection.MethodBase.GetCurrentMethod().Name, typeof(DeleteCategoryRequest).GetProperties(), request);
+            foreach (var logger in _loggers)
+            {
+                logger.Info(logAsJson);
+            }
+
             _businessRules.CheckIfCategoryNotExist(request.Id);
             Category category = _mapper.Map<Category>(request); // yeni bir instance üretir, ID olmak zorunda!
             //Category category = _categoryDal.GetById(request.Id); // databasede obje instance'i

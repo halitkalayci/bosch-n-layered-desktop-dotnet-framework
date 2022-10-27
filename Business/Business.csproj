@@ -96,6 +96,9 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.21.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.21.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.12.0\lib\net47\Serilog.dll</HintPath>
     </Reference>
@@ -222,7 +225,9 @@
   <ItemGroup>
     <Compile Include="Abstracts\ICategoryService.cs" />
     <Compile Include="Abstracts\ICustomerService.cs" />
+    <Compile Include="Adapters\Abstracts\IAuthAdapter.cs" />
     <Compile Include="Adapters\Abstracts\IPaymentAdapter.cs" />
+    <Compile Include="Adapters\Concretes\BoschAuthAdapter.cs" />
     <Compile Include="Adapters\Concretes\BoschPaymentAdapter.cs" />
     <Compile Include="Adapters\Concretes\KPSIdentityAdapter.cs" />
     <Compile Include="Adapters\Abstracts\IIdentityAdapter.cs" />
@@ -231,6 +236,11 @@
     <Compile Include="BusinessRules\CustomerBusinessRules.cs" />
     <Compile Include="Concretes\CategoryManager.cs" />
     <Compile Include="Concretes\CustomerManager.cs" />
+    <Compile Include="Connected Services\AuthService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\KPSService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +269,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\AuthService\AuthService.wsdl" />
+    <None Include="Connected Services\AuthService\Business.AuthService.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AuthService\Business.AuthService.SayHiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\KPSService\Business.KPSService.TCKimlikNoDogrulaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -293,6 +310,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthService\" />
     <WCFMetadataStorage Include="Connected Services\KPSService\" />
     <WCFMetadataStorage Include="Connected Services\PaymentService\" />
   </ItemGroup>
@@ -316,6 +334,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\PaymentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\AuthService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

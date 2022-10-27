@@ -10,6 +10,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{17AB78C8-9753-4E56-B165-AADC7F7354AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{821C7136-5874-48A3-93AF-6FDDEC2443A5} = {821C7136-5874-48A3-93AF-6FDDEC2443A5}
+		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68} = {CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUI", "WinFormsUI\WinFormsUI.csproj", "{46513DB0-4CC9-4B75-BCD7-10116B91EC92}"
@@ -17,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{4D876C0A-931B-4D9A-A153-6F1664B309CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentService\PaymentService.csproj", "{821C7136-5874-48A3-93AF-6FDDEC2443A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\AuthService.csproj", "{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +51,10 @@ Global
 		{821C7136-5874-48A3-93AF-6FDDEC2443A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{821C7136-5874-48A3-93AF-6FDDEC2443A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{821C7136-5874-48A3-93AF-6FDDEC2443A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

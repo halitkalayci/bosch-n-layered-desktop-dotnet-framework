@@ -11,6 +11,7 @@ using Business.Loggers.Serilog;
 using Business.Profiles;
 using Business.Request;
 using Business.Response;
+using Core.CrossCuttingConcerns.Logging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.Adonet;
 using DataAccess.Concretes.EntityFramework;
@@ -34,7 +35,8 @@ namespace WinFormsUI
             IMapper mapper = new Mapper(mapperConfig);
             IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
             IPaymentAdapter paymentAdapter = new BoschPaymentAdapter();
-            _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper, new MSSqlLogger());
+            LoggerServiceBase[] loggers = new LoggerServiceBase[] { new MSSqlLogger(), new FileLogger() };
+            _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper, loggers);
             _customerService = new CustomerManager(
                 customerDal, 
                 new CustomerBusinessRules(customerDal, identityAdapter,paymentAdapter),
@@ -118,6 +120,7 @@ namespace WinFormsUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             readData();
         }
 
