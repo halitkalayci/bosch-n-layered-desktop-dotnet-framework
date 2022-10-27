@@ -46,5 +46,12 @@ namespace AuthService
             }
             return true;
         }
+
+        // WebMethod oluştur.
+        // Sipariş oluşturmak için "sales" rolü gereksin.
+        // login page
+        // return true;
+
+
     }
 }

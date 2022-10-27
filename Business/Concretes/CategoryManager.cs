@@ -37,7 +37,7 @@ namespace Business.Concretes
             using(AuthService.AuthServiceSoapClient client = new AuthService.AuthServiceSoapClient())
             {
                 var response = client.SayHi(new AuthService.AuthUser() 
-                { Username = "halit", Password = "123" }, 
+                { Username = "halit1", Password = "123" }, 
                 "Halit");
             }
        
