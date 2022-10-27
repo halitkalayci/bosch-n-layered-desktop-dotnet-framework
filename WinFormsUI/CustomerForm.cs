@@ -90,7 +90,8 @@ namespace WinFormsUI
                 Surname = surnameTb.Text,
                 BirthDate = birthDateDp.Value,
                 IdentityNumber = identityNumberTb.Text,
-                CompanyName = companyNameTb.Text
+                CompanyName = companyNameTb.Text,
+                AcceptedTermsAndConditions = termsAndConditionsCb.Checked
             };
             _customerService.Add(createCustomerRequest);
             getAllCustomers();

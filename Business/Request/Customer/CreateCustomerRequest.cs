@@ -22,5 +22,6 @@ namespace Business.Request.Customer
         public DateTime BirthDate { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public bool AcceptedTermsAndConditions { get; set; }
     }
 }

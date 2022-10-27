@@ -7,6 +7,7 @@ using Business.Adapters.Abstracts;
 using Business.Adapters.Concretes;
 using Business.BusinessRules;
 using Business.Concretes;
+using Business.Loggers.Serilog;
 using Business.Profiles;
 using Business.Request;
 using Business.Response;
@@ -33,7 +34,7 @@ namespace WinFormsUI
             IMapper mapper = new Mapper(mapperConfig);
             IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
             IPaymentAdapter paymentAdapter = new BoschPaymentAdapter();
-            _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper);
+            _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper, new MSSqlLogger());
             _customerService = new CustomerManager(
                 customerDal, 
                 new CustomerBusinessRules(customerDal, identityAdapter,paymentAdapter),

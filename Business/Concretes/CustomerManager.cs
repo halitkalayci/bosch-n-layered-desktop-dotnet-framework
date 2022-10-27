@@ -31,6 +31,7 @@ namespace Business.Concretes
         }
         public void Add(CreateCustomerRequest customer)
         {
+            _customerBusinessRules.CheckIfCustomerAcceptedTermsAndConditions(customer.AcceptedTermsAndConditions);
             _customerBusinessRules.ValidateIdentity(Convert.ToInt64(customer.IdentityNumber), customer.Name, customer.Surname, customer.BirthDate.Year);
             _customerBusinessRules.CheckIfCustomerExist(customer.CustomerID);
             _customerBusinessRules.CheckIfPaymentSuccess("a", "a", 1, 101);

@@ -30,7 +30,7 @@ namespace Business.BusinessRules
         public void CheckIfCustomerExist(Customer customer)
         {
             if (customer != null)
-                throw new Exception("böyle bir müşteri zaten mevcut!");
+                throw new BusinessException("böyle bir müşteri zaten mevcut!");
         }
 
         public void CheckIfCustomerDoesNotExist(string id)
@@ -42,7 +42,13 @@ namespace Business.BusinessRules
         public void CheckIfCustomerDoesNotExist(Customer customer)
         {
             if (customer == null)
-                throw new Exception("Müşteri bulunamadı.");
+                throw new BusinessException("Müşteri bulunamadı.");
+        }
+
+        public void CheckIfCustomerAcceptedTermsAndConditions(bool accepted)
+        {
+            if (accepted == false)
+                throw new BusinessException("Müşteri kayıt etmek için şartları kabul etmelisiniz.");
         }
 
         public void ValidateIdentity(long identityNumber,string name,string surname,int birthYear)

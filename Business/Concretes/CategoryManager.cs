@@ -6,6 +6,7 @@ using Business.BusinessRules;
 using Business.Request;
 using Business.Response;
 using Business.ValidationResolvers.FluentValidation.Category;
+using Core.CrossCuttingConcerns.Logging;
 using Core.Validation;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -15,14 +16,16 @@ namespace Business.Concretes
 {
     public class CategoryManager : ICategoryService
     {
+        private LoggerServiceBase _logger;
         private ICategoryDal _categoryDal;
         private CategoryBusinessRules _businessRules;
         private IMapper _mapper;
-        public CategoryManager(ICategoryDal category, CategoryBusinessRules businessRules, IMapper mapper)
+        public CategoryManager(ICategoryDal category, CategoryBusinessRules businessRules, IMapper mapper, LoggerServiceBase logger)
         {
             _categoryDal = category;
             _businessRules = businessRules;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public void Add(CreateCategoryRequest request)
@@ -40,7 +43,7 @@ namespace Business.Concretes
 
             //    return;
             //}
-
+            _logger.Info("CategoryManager.Add methodu çağırıldı..");
             ValidationHelper<CreateCategoryRequest>
                 .Validate(typeof(CreateCategoryRequestValidator),request);
 

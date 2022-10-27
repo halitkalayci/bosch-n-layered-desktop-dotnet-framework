@@ -42,12 +42,13 @@
             this.identityNumberTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.updateCustomerGb = new System.Windows.Forms.GroupBox();
+            this.updateCustomerIdTb = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.updateCustomerBtn = new System.Windows.Forms.Button();
             this.updateCompanyNameTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.updateCustomerIdTb = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.termsAndConditionsCb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             this.addCustomGroup.SuspendLayout();
             this.updateCustomerGb.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // addCustomGroup
             // 
+            this.addCustomGroup.Controls.Add(this.termsAndConditionsCb);
             this.addCustomGroup.Controls.Add(this.addCustomerBtn);
             this.addCustomGroup.Controls.Add(this.companyNameTb);
             this.addCustomGroup.Controls.Add(this.label5);
@@ -86,14 +88,14 @@
             this.addCustomGroup.Controls.Add(this.label1);
             this.addCustomGroup.Location = new System.Drawing.Point(12, 234);
             this.addCustomGroup.Name = "addCustomGroup";
-            this.addCustomGroup.Size = new System.Drawing.Size(241, 313);
+            this.addCustomGroup.Size = new System.Drawing.Size(241, 440);
             this.addCustomGroup.TabIndex = 1;
             this.addCustomGroup.TabStop = false;
             this.addCustomGroup.Text = "Add Customer";
             // 
             // addCustomerBtn
             // 
-            this.addCustomerBtn.Location = new System.Drawing.Point(18, 261);
+            this.addCustomerBtn.Location = new System.Drawing.Point(18, 300);
             this.addCustomerBtn.Name = "addCustomerBtn";
             this.addCustomerBtn.Size = new System.Drawing.Size(203, 34);
             this.addCustomerBtn.TabIndex = 10;
@@ -195,6 +197,23 @@
             this.updateCustomerGb.TabStop = false;
             this.updateCustomerGb.Text = "Update Customer";
             // 
+            // updateCustomerIdTb
+            // 
+            this.updateCustomerIdTb.Enabled = false;
+            this.updateCustomerIdTb.Location = new System.Drawing.Point(132, 27);
+            this.updateCustomerIdTb.Name = "updateCustomerIdTb";
+            this.updateCustomerIdTb.Size = new System.Drawing.Size(100, 22);
+            this.updateCustomerIdTb.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 16);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Customer ID";
+            // 
             // updateCustomerBtn
             // 
             this.updateCustomerBtn.Location = new System.Drawing.Point(29, 103);
@@ -221,23 +240,6 @@
             this.label6.TabIndex = 19;
             this.label6.Text = "Company Name";
             // 
-            // updateCustomerIdTb
-            // 
-            this.updateCustomerIdTb.Enabled = false;
-            this.updateCustomerIdTb.Location = new System.Drawing.Point(132, 27);
-            this.updateCustomerIdTb.Name = "updateCustomerIdTb";
-            this.updateCustomerIdTb.Size = new System.Drawing.Size(100, 22);
-            this.updateCustomerIdTb.TabIndex = 23;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 16);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Customer ID";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(564, 236);
@@ -247,11 +249,21 @@
             this.button1.Text = "Delete Customer";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // termsAndConditionsCb
+            // 
+            this.termsAndConditionsCb.AutoSize = true;
+            this.termsAndConditionsCb.Location = new System.Drawing.Point(18, 257);
+            this.termsAndConditionsCb.Name = "termsAndConditionsCb";
+            this.termsAndConditionsCb.Size = new System.Drawing.Size(221, 20);
+            this.termsAndConditionsCb.TabIndex = 11;
+            this.termsAndConditionsCb.Text = "Koşul ve şartları kabul ediyorum.";
+            this.termsAndConditionsCb.UseVisualStyleBackColor = true;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 559);
+            this.ClientSize = new System.Drawing.Size(1113, 702);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.updateCustomerGb);
             this.Controls.Add(this.addCustomGroup);
@@ -290,5 +302,6 @@
         private System.Windows.Forms.TextBox updateCustomerIdTb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox termsAndConditionsCb;
     }
 }

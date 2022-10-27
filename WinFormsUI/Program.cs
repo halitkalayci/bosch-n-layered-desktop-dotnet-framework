@@ -23,7 +23,7 @@ namespace WinFormsUI
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += Application_ThreadException;
             //
-            Application.Run(new CustomerForm());
+            Application.Run(new Form1());
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
@@ -46,6 +46,8 @@ namespace WinFormsUI
         private static void HandleBusinessException(ThreadExceptionEventArgs e)
         {
             var businessException = (BusinessException)e.Exception;
+            // MessageHelper.ShowErrorMessage();
+            //MessageBox.Show(businessException.ToString());
             ErrorForm errorForm = new ErrorForm(businessException.ToString());
             errorForm.ShowDialog();
         }
