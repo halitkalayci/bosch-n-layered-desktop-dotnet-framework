@@ -55,14 +55,14 @@ namespace Business.BusinessRules
         {
             bool isIdentityValid = _identityAdapter.CheckIdentityNumber(identityNumber, name, surname, birthYear);
             if (!isIdentityValid)
-                throw new BusinessException("Kimlik bilgileri doğrulanamadı.", false);
+                throw new BusinessException("Kimlik bilgileri doğrulanamadı.");
         }
 
         public void CheckIfPaymentSuccess(string cardNumber, string expireDate, int cvv, decimal price)
         {
             bool isPaymentSuccess = _paymentAdapter.Pay(cardNumber, expireDate, cvv, price);
             if (!isPaymentSuccess)
-                throw new BusinessException("Ödeme yapılamadı.", false);
+                throw new BusinessException("Ödeme yapılamadı.");
         }
     }
 }

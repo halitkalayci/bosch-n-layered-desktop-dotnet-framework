@@ -39,12 +39,12 @@ namespace Business.BusinessRules
         {
 
             if (category is null)
-                throw new BusinessException("Bu category'nin kaydı bulunmamaktadır.", false);
+                throw new BusinessException("Bu category'nin kaydı bulunmamaktadır.");
         }
         public void CheckIfCategoryExists(Category category)
         {
             if (category != null)
-                throw new BusinessException("Bu category'nin kaydı bulunmaktadır.", false);
+                throw new BusinessException("Bu category'nin kaydı bulunmaktadır.");
 
         }
 

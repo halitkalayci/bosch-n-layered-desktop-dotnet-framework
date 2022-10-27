@@ -86,7 +86,6 @@
             this.updateCompanyNameTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.termsAndConditionsCb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             this.addCustomGroup.SuspendLayout();
             this.updateCustomerGb.SuspendLayout();
@@ -692,16 +691,6 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "Delete Customer";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // termsAndConditionsCb
-            // 
-            this.termsAndConditionsCb.AutoSize = true;
-            this.termsAndConditionsCb.Location = new System.Drawing.Point(18, 257);
-            this.termsAndConditionsCb.Name = "termsAndConditionsCb";
-            this.termsAndConditionsCb.Size = new System.Drawing.Size(221, 20);
-            this.termsAndConditionsCb.TabIndex = 11;
-            this.termsAndConditionsCb.Text = "Koşul ve şartları kabul ediyorum.";
-            this.termsAndConditionsCb.UseVisualStyleBackColor = true;
             // 
             // CustomerForm
             // 

@@ -84,15 +84,6 @@ namespace WinFormsUI
             Console.WriteLine("Selection Changed");
 
             updateCompanyNameTb.Text = firstlySelectedRow.Cells["CompanyName"].Value?.ToString();
-            updateCustomerIdTb.Text = firstlySelectedRow.Cells["CustomerId"].Value?.ToString();
-            updateContactNameTb.Text = firstlySelectedRow.Cells["ContactName"].Value?.ToString();
-            updateAddressTb.Text = firstlySelectedRow.Cells["Address"].Value?.ToString();
-            updateCityTb.Text = firstlySelectedRow.Cells["City"].Value?.ToString();
-            updateRegionTb.Text = firstlySelectedRow.Cells["Region"].Value?.ToString();
-            updatePostalCodeTb.Text = firstlySelectedRow.Cells["PostalCode"].Value?.ToString();
-            updateCountryTb.Text = firstlySelectedRow.Cells["Country"].Value?.ToString();
-            updatePhoneTb.Text = firstlySelectedRow.Cells["Phone"].Value?.ToString();
-            updateFaxTb.Text = firstlySelectedRow.Cells["Fax"].Value?.ToString();
 
         }
 
@@ -104,17 +95,6 @@ namespace WinFormsUI
                 Surname = surnameTb.Text,
                 BirthDate = addTimePicker.Value,
                 IdentityNumber = identityNumberTb.Text,
-                CompanyName = companyNameTb.Text,
-                ContactName = addContactNameTb.Text,
-                Address = addAddressTb.Text,
-                City = addCityTb.Text,
-                Region = addRegionTb.Text,
-                PostalCode = addPostalCodeTb.Text,
-                Country = addCountryTb.Text,
-                Phone = addPhoneTb.Text,
-                Fax = addFaxTb.Text
-                CompanyName = companyNameTb.Text,
-                AcceptedTermsAndConditions = termsAndConditionsCb.Checked
             };
             _customerService.Add(createCustomerRequest);
             MessageHelper.ShowSuccessMessage("Başarıyla eklendi");

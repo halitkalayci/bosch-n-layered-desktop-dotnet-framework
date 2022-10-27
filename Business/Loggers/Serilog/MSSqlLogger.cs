@@ -13,7 +13,7 @@ namespace Business.Loggers.Serilog
     {
         public MSSqlLogger()
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Logger;";
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;";
 
             var sinkOptions = new MSSqlServerSinkOptions() { TableName="Logs",AutoCreateSqlTable=true };
 
@@ -22,7 +22,7 @@ namespace Business.Loggers.Serilog
             columnOpts.Store.Remove(StandardColumn.Properties);
 
             Logger = new LoggerConfiguration()
-                .WriteTo
+                .AuditTo
                 .MSSqlServer(connectionString: connectionString, sinkOptions: sinkOptions,columnOptions:columnOpts)
                 .CreateLogger();
         }

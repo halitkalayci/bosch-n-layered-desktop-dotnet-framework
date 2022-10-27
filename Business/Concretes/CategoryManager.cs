@@ -43,6 +43,8 @@ namespace Business.Concretes
 
             //    return;
             //}
+
+            // Parametredeki tüm değerleri, method adını JSON olarak yazdır..
             _logger.Info("CategoryManager.Add methodu çağırıldı..");
             ValidationHelper<CreateCategoryRequest>
                 .Validate(typeof(CreateCategoryRequestValidator),request);

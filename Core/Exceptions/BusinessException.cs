@@ -9,11 +9,9 @@ namespace Core.Exceptions
     public class BusinessException : Exception
     {
         public string Message { get; set; }
-        public bool MessageType { get; set; }
-        public BusinessException(string message, bool messageType)
+        public BusinessException(string message)
         {
             Message = message;
-            MessageType = messageType;
         }
 
         public override string ToString()
@@ -21,9 +19,6 @@ namespace Core.Exceptions
             return Message;
         }
 
-        public bool GetMessageType()
-        {
-            return MessageType;
-        }
+      
     }
 }
