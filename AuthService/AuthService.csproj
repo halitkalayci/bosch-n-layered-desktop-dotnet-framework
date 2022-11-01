@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuthService.asmx" />
+    <Content Include="DenemeService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +77,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AuthUser.cs" />
+    <Compile Include="DenemeService.asmx.cs">
+      <DependentUpon>DenemeService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

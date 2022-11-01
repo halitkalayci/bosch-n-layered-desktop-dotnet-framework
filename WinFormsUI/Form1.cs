@@ -174,5 +174,16 @@ namespace WinFormsUI
                 readData();
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Properties.Settings.Default.Username = String.Empty;
+            Properties.Settings.Default.Password = String.Empty;
+            Properties.Settings.Default.Save();
+
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
     }
 }

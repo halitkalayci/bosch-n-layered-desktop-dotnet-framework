@@ -43,6 +43,7 @@
             this.updateCategoryNameTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.updateBtn = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -197,11 +198,23 @@
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(525, 502);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(79, 16);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Safe Logout";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 527);
+            this.ClientSize = new System.Drawing.Size(609, 526);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.updateGroupBox);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.categoriesListBox);
@@ -215,6 +228,7 @@
             this.updateGroupBox.ResumeLayout(false);
             this.updateGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -235,6 +249,7 @@
         private System.Windows.Forms.TextBox updateCategoryNameTb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

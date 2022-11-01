@@ -33,6 +33,7 @@
             this.passwordTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.rememberMeCb = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +70,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(66, 146);
+            this.loginBtn.Location = new System.Drawing.Point(66, 177);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(206, 48);
             this.loginBtn.TabIndex = 4;
@@ -77,11 +78,23 @@
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // rememberMeCb
+            // 
+            this.rememberMeCb.AutoSize = true;
+            this.rememberMeCb.Location = new System.Drawing.Point(66, 138);
+            this.rememberMeCb.Name = "rememberMeCb";
+            this.rememberMeCb.Size = new System.Drawing.Size(119, 20);
+            this.rememberMeCb.TabIndex = 5;
+            this.rememberMeCb.Text = "Remember Me";
+            this.rememberMeCb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rememberMeCb.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 262);
+            this.Controls.Add(this.rememberMeCb);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTb);
             this.Controls.Add(this.label2);
@@ -89,6 +102,8 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +116,6 @@
         private System.Windows.Forms.TextBox passwordTb;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.CheckBox rememberMeCb;
     }
 }
