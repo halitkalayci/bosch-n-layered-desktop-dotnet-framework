@@ -251,6 +251,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Constants\ConfigKeyContants.cs" />
     <Compile Include="Loggers\Serilog\FileLogger.cs" />
     <Compile Include="Loggers\Serilog\MSSqlLogger.cs" />
     <Compile Include="Profiles\AutoMapperProfiles.cs" />

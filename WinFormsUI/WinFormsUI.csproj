@@ -60,6 +60,9 @@
     <Reference Include="Azure.Identity, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Identity.1.6.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
+    <Reference Include="CloudinaryDotNet, Version=1.20.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.20.0\lib\net452\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -107,6 +110,9 @@
     </Reference>
     <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1370.28, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1370.28\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -260,6 +266,12 @@
     <Compile Include="SamplesForm.Designer.cs">
       <DependentUpon>SamplesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UploadContentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadContentForm.Designer.cs">
+      <DependentUpon>UploadContentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +305,9 @@
     </Compile>
     <EmbeddedResource Include="SamplesForm.resx">
       <DependentUpon>SamplesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadContentForm.resx">
+      <DependentUpon>UploadContentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebSampleForm.resx">
       <DependentUpon>WebSampleForm.cs</DependentUpon>
