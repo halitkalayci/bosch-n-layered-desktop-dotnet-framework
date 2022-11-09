@@ -29,7 +29,7 @@ namespace AuthService
         public string SayHi(string name)
         {
             //admin
-            if(AuthUser == null || !AuthUser.IsAuthenticated(new string[] {"hi"}))
+            if(AuthUser == null || !AuthUser.IsAuthenticated())
             {
                 throw new HttpException(401, "Unauthorized");
             }

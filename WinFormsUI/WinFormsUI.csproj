@@ -216,6 +216,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -272,6 +273,12 @@
     <Compile Include="UploadContentForm.Designer.cs">
       <DependentUpon>UploadContentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UploadDbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadDbForm.Designer.cs">
+      <DependentUpon>UploadDbForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UploadContentForm.resx">
       <DependentUpon>UploadContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadDbForm.resx">
+      <DependentUpon>UploadDbForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebSampleForm.resx">
       <DependentUpon>WebSampleForm.cs</DependentUpon>

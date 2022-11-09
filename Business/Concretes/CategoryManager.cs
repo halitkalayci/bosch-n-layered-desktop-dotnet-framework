@@ -37,7 +37,7 @@ namespace Business.Concretes
             using(AuthService.AuthServiceSoapClient client = new AuthService.AuthServiceSoapClient())
             {
                 var response = client.SayHi(new AuthService.AuthUser() 
-                { Username = "halit1", Password = "123" }, 
+                { Username = "halit", Password = "123" }, 
                 "Halit");
             }
        
@@ -54,7 +54,7 @@ namespace Business.Concretes
             ValidationHelper<CreateCategoryRequest>
                 .Validate(typeof(CreateCategoryRequestValidator),request);
             ///
-
+            _businessRules.CheckIfCategoryNameExists(request.Name);
             /// MAPLEME
             Category category = _mapper.Map<Category>(request);
             ///

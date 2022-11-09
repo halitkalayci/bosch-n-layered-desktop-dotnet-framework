@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Abstracts\ICategoryDal.cs" />
     <Compile Include="Abstracts\ICustomerDal.cs" />
+    <Compile Include="Abstracts\IDocumentDal.cs" />
     <Compile Include="Abstracts\IEmployeeDal.cs" />
     <Compile Include="Abstracts\IProductDal.cs" />
     <Compile Include="Concretes\Adonet\AdoCategoryDal.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Concretes\Adonet\AdoProductDal.cs" />
     <Compile Include="Concretes\EntityFramework\Contexts\NorthwindContext.cs" />
     <Compile Include="Concretes\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concretes\EntityFramework\EfDocumentDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

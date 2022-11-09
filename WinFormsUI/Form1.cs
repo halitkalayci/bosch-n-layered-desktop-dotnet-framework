@@ -35,7 +35,7 @@ namespace WinFormsUI
             IMapper mapper = new Mapper(mapperConfig);
             IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
             IPaymentAdapter paymentAdapter = new BoschPaymentAdapter();
-            LoggerServiceBase[] loggers = new LoggerServiceBase[] { new MSSqlLogger(), new FileLogger() };
+            LoggerServiceBase[] loggers = new LoggerServiceBase[] { new MSSqlLogger() };
             _categoryService = new CategoryManager(categoryDal, new CategoryBusinessRules(categoryDal), mapper, loggers);
             _customerService = new CustomerManager(
                 customerDal, 

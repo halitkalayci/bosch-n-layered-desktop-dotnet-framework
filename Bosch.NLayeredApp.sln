@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\AuthService.csproj", "{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProject", "SetupProject\SetupProject.vdproj", "{883D6DE4-DBB5-45F9-AA1A-6A46FB9B6A89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosch.UnitTests", "Bosch.UnitTests\Bosch.UnitTests.csproj", "{F04C1F07-9287-45DD-A802-E70749A6DCEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,12 @@ Global
 		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD61AEE3-3874-463B-AF7A-EBBEDE6D4F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883D6DE4-DBB5-45F9-AA1A-6A46FB9B6A89}.Debug|Any CPU.ActiveCfg = Debug
+		{883D6DE4-DBB5-45F9-AA1A-6A46FB9B6A89}.Release|Any CPU.ActiveCfg = Release
+		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
