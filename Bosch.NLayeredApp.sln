@@ -25,6 +25,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProject", "SetupProjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosch.UnitTests", "Bosch.UnitTests\Bosch.UnitTests.csproj", "{F04C1F07-9287-45DD-A802-E70749A6DCEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosch.MVC", "Bosch.MVC\Bosch.MVC.csproj", "{56B11C15-DA9B-4FB2-91BF-DDC7665F3BF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04C1F07-9287-45DD-A802-E70749A6DCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B11C15-DA9B-4FB2-91BF-DDC7665F3BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B11C15-DA9B-4FB2-91BF-DDC7665F3BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B11C15-DA9B-4FB2-91BF-DDC7665F3BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B11C15-DA9B-4FB2-91BF-DDC7665F3BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

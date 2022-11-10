@@ -1,0 +1,15 @@
+﻿@model List<Business.Response.ListCategoryResponse>
+@{
+    ViewBag.Title = "Categories";
+}
+
+<div class="container mt-5">
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item"> <a href="@Url.Action("Details", "Categories", new { Id=item.Id })"> @item.Name </a>  <a href="@Url.Action("Delete",new{ Id=item.Id })" class="btn btn-danger">Sil</a></li>
+        }
+    </ul>
+</div>
+
+
