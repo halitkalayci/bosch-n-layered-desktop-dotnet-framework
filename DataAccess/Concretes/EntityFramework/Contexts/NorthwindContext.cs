@@ -10,5 +10,6 @@ namespace DataAccess.Concretes.EntityFramework.Contexts
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Document> Documents { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

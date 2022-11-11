@@ -46,6 +46,7 @@
     <Compile Include="Concretes\Document.cs" />
     <Compile Include="Concretes\Employee.cs" />
     <Compile Include="Concretes\Product.cs" />
+    <Compile Include="Concretes\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

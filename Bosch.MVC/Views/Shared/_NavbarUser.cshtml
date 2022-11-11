@@ -1,0 +1,17 @@
+﻿@{
+    string username = "";
+    if (User.Identity.IsAuthenticated)
+    {
+        var identity = (System.Security.Claims.ClaimsIdentity)User.Identity;
+        var claims = identity.Claims;
+        var userClaim = claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name");
+        username = userClaim.Value;
+    }
+
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li><p class="text-primary">Hoşgeldiniz sayın @username</p></li>
+    <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
+}

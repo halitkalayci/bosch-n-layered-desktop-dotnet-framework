@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+{
+    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputEmail3">Username</label>
+        <input type="text" class="form-control" name="username" id="exampleInputEmail3" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputPassword3">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword3" placeholder="Password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+}

@@ -235,6 +235,7 @@
     <Compile Include="Abstracts\ICategoryService.cs" />
     <Compile Include="Abstracts\ICustomerService.cs" />
     <Compile Include="Abstracts\IDocumentService.cs" />
+    <Compile Include="Abstracts\IUserService.cs" />
     <Compile Include="Adapters\Abstracts\IAuthAdapter.cs" />
     <Compile Include="Adapters\Abstracts\IPaymentAdapter.cs" />
     <Compile Include="Adapters\Concretes\BoschAuthAdapter.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Concretes\CategoryManager.cs" />
     <Compile Include="Concretes\CustomerManager.cs" />
     <Compile Include="Concretes\DocumentManager.cs" />
+    <Compile Include="Concretes\UserManager.cs" />
     <Compile Include="Connected Services\AuthService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,6 +275,8 @@
     <Compile Include="Request\Customer\CreateCustomerRequest.cs" />
     <Compile Include="Request\Customer\DeleteCustomerRequest.cs" />
     <Compile Include="Request\Customer\UpdateCustomerRequest.cs" />
+    <Compile Include="Request\User\CreateUserRequest.cs" />
+    <Compile Include="Request\User\GetCustomerByUsernameAndPasswordRequest.cs" />
     <Compile Include="Response\Category\GetCategoryResponse.cs" />
     <Compile Include="Response\Category\ListCategoryResponse.cs" />
     <Compile Include="Response\Customer\GetCustomerResponse.cs" />
@@ -364,6 +368,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Response\User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

@@ -1,0 +1,17 @@
+﻿@model List<Bosch.MVC.Models.Post>
+@{
+    ViewBag.Title = "Posts";
+}
+
+<h2>Posts</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-12 mb-2 card">
+            <p># @item.Id</p>
+            <h3>@item.Title</h3>
+            <h5>@item.Body</h5>
+            <a href="@Url.Action("Details", "Home", new {Id=item.Id})" class="btn btn-success">Detaya Git</a>
+        </div>
+    }
+</div>

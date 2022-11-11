@@ -41,10 +41,9 @@ namespace Bosch.MVC.Controllers
         public ActionResult Details(int id)
         {
             var category = _categoryService.GetById(id);
-            string msg = null;
-            ViewBag.Length = msg.Length;
             return View(category);
         }
+        [Authorize(Roles = "Admin,Category.Add")]
         public ActionResult Add()
         {
             return View();
